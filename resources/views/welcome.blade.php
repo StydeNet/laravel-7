@@ -13,7 +13,9 @@
 <div class="container">
     <div class="row">
         <div class="col col-8">
-            <x-field name="email_address" type="email" help="No compartiremos tu correo con terceros."></x-field>
+            <x-form method="post" class="mt-4" :action="url('/')">
+                <x-field name="email_address" type="email" help="No compartiremos tu correo con terceros." />
+            </x-form>
         </div>
     </div>
 </div>
