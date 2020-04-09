@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use Illuminate\Contracts\Translation\Translator;
+use Illuminate\Support\Str;
 use Illuminate\View\Component;
 
 class Field extends Component
@@ -53,7 +54,10 @@ class Field extends Component
             return $this->translator->get('validation.attributes.'.$this->name);
         }
 
-        return ucfirst(str_replace('_', ' ', $this->name));
+        return Str::of($this->name)
+            ->ucfirst()
+            ->replace('_', ' ')
+            ->finish(':');
     }
 
     /**
